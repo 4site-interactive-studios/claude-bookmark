@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Claude</title>
-  <link rel="icon" type="image/x-icon" href="https://claude.ai/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://favicon.im/claude.ai">
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -29,9 +29,16 @@
     function launch() {
       window.location.href = "claude://open";
       setTimeout(function () {
-        window.open("", "_self");
+        window.open("about:blank", "_self");
         window.close();
-      }, 500);
+      }, 300);
+      setTimeout(function () {
+        window.close();
+      }, 600);
+      setTimeout(function () {
+        document.body.innerHTML = "";
+        window.location.href = "about:blank";
+      }, 900);
     }
 
     // On load
