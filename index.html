@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claude</title>
+  <link rel="icon" type="image/x-icon" href="https://claude.ai/favicon.ico">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f5efe6;
+      color: #3d3929;
+      cursor: pointer;
+    }
+    a {
+      color: #da7756;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <p>Opening Claude… <a href="claude://open">Click here</a> if nothing happened.</p>
+  <script>
+    function launch() {
+      window.location.href = "claude://open";
+      setTimeout(function () {
+        window.open("", "_self");
+        window.close();
+      }, 500);
+    }
+
+    // On load
+    launch();
+
+    // Tab/window gets focus
+    window.addEventListener("focus", launch);
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") launch();
+    });
+
+    // Any mouse activity
+    document.addEventListener("mouseover", launch);
+    document.addEventListener("mousemove", launch);
+    document.addEventListener("click", launch);
+
+    // Keyboard
+    document.addEventListener("keydown", launch);
+
+    // Touch
+    document.addEventListener("touchstart", launch);
+  </script>
+</body>
+</html>
